@@ -24,9 +24,9 @@ def run():
         except Exception as e:
             print("No cookie popup found or timeout, continuing.")
 
-        # 2. Loop the play and refresh process 100 times
-        for i in range(100):
-            print(f"\n--- Playthrough {i + 1} of 100 ---")
+        # 2. Loop the play and refresh process 5 times
+        for i in range(5):
+            print(f"\n--- Playthrough {i + 1} of 5 ---")
             
             try:
                 # wait a bit for page to load and play button to potentially be visible
@@ -54,17 +54,17 @@ def run():
             except Exception as e:
                 print("Play/Pause button not found.")
 
-            # Generate a random number between 60 and 90
-            sleep_time = random.randint(60, 90)
+            # Generate a random number between 60 and 300, with 10 decimal places
+            sleep_time = round(random.uniform(60, 300), 10)
             print(f"Listening for {sleep_time} seconds...")
             time.sleep(sleep_time)
 
             # Refresh the page (unless it is the very last loop)
-            if i < 99:
+            if i < 4:
                 print("Refreshing the page...")
                 page.reload()
 
-        print("\nDone! Completed 100 loops. Closing browser.")
+        print("\nDone! Completed 5 loops. Closing browser.")
         browser.close()
 
 if __name__ == "__main__":
